@@ -26,11 +26,14 @@ const login = (req, res) => {
 };
   
 const profile = (req, res) => {
+    console.log("auth-controller profile");
     const currentUser = req.session["currentUser"];
+    console.log("auth-controller profile", currentUser);
     if (!currentUser) {
       res.sendStatus(404);
       return;
     }
+    console.log(currentUser);
     res.json(currentUser);
   };
   
