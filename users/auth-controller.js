@@ -13,31 +13,31 @@ const AuthController = (app) => {
         res.json(newUser);
       };
      
-    const login = (req, res) => {
-        const username = req.body.username;
-        const password = req.body.password;
-        const user = usersDao.findUserByCredentials(username, password);
-        if (user) {
-            req.session["currentUser"] = user;
-            res.json(user);
-        } else {
-            res.sendStatus(404);
-        }
-    };
-     
-    const profile = (req, res) => {
-        const currentUser = req.session["currentUser"];
-        if (!currentUser) {
-          res.sendStatus(404);
-          return;
-        }
-        res.json(currentUser);
-      };
-     
-    const logout = async (req, res) => {
-    req.session.destroy();
-    res.sendStatus(200);
-    };
+const login = (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const user = usersDao.findUserByCredentials(username, password);
+    if (user) {
+        req.session["currentUser"] = user;
+        res.json(user);
+    } else {
+        res.sendStatus(404);
+    }
+};
+  
+const profile = (req, res) => {
+    const currentUser = req.session["currentUser"];
+    if (!currentUser) {
+      res.sendStatus(404);
+      return;
+    }
+    res.json(currentUser);
+  };
+  
+const logout = async (req, res) => {
+req.session.destroy();
+res.sendStatus(200);
+};
      
  const update   = (req, res) => { };
  app.post("/api/users/register", register);
