@@ -20,6 +20,8 @@ app.use(
   resave: false,
   saveUninitialized: false,
 };
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+console.log("FRONTEND_URL", process.env.FRONTEND_URL);
 if (process.env.NODE_ENV !== "development") {
   sessionOptions.proxy = true;
   sessionOptions.cookie = {
