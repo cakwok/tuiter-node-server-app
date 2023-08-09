@@ -10,11 +10,12 @@ import "dotenv/config";
 const app = express()
 
 const allowedOrigins = [
-  'https://a5--sensational-nougat-1bbd5b.netlify.app',
-  'http://localhost:3000',
+  /*'https://a5--sensational-nougat-1bbd5b.netlify.app',
+  'http://localhost:3000',*/
+  process.env.FRONTEND_URL,
 ];
 
-console.log("process.env.FRONTEND_URL", process.env.FRONTEND_URL);
+console.log("process.env.FRONTEND_URL2", process.env.FRONTEND_URL);
 app.use(
   cors({
     credentials: true,
