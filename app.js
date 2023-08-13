@@ -17,7 +17,7 @@ console.log("process.env.FRONTEND_URL", process.env.FRONTEND_URL);
 
 const allowedOrigins = [
   'https://a5--sensational-nougat-1bbd5b.netlify.app',
-  'https://a6--sensational-nougat-1bbd5b.netlify.app',
+  'https://a6--sensational-nougat-1bbd5b.netlify.app/#/tuiter/home',
   'http://localhost:3000',
   process.env.FRONTEND_URL,
 ];
