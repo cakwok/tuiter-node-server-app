@@ -14,7 +14,7 @@ mongoose.connect(CONNECTION_STRING);
 const app = express()
 
 console.log("process.env.FRONTEND_URL", process.env.FRONTEND_URL);
-console.log("process.env.DB_CONNECTION_STRING", process.env.DB_CONNECTION_STRING)
+console.log("process.env.DB_CONNECTION_STRING", process.env.DB_CONNECTION_STRING);
 
 const allowedOrigins = [
   'https://a5--sensational-nougat-1bbd5b.netlify.app',
