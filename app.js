@@ -19,8 +19,8 @@ console.log("process.env.FRONTEND_URL2", process.env.FRONTEND_URL);
 app.use(
   cors({
     credentials: true,
-    /*origin: process.env.FRONTEND_URL,*/
-    origin: allowedOrigins,
+    origin: process.env.FRONTEND_URL,
+    /*origin: allowedOrigins,*/
   })
  ); 
 
