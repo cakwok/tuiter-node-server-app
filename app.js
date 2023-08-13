@@ -21,7 +21,7 @@ const allowedOrigins = [
   'https://a6--sensational-nougat-1bbd5b.netlify.app/#/tuiter/home',
   'http://localhost:3000',
   process.env.FRONTEND_URL,
-  *,
+  '*',
 ];
 
 
