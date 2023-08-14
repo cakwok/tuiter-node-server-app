@@ -99,7 +99,7 @@ const createUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const status = await usersDao.deleteUser(id);
   res.json(status);
 };
