@@ -28,7 +28,8 @@ const allowedOrigins = [
 app.use(
   cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL
+    /*origin: process.env.FRONTEND_URL*/
+    orign: 'https://a6--sensational-nougat-1bbd5b.netlify.app'
     /*origin: allowedOrigins,*/
   })
  ); 
