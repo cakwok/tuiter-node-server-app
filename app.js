@@ -11,6 +11,14 @@ import mongoose from "mongoose";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter';
 mongoose.connect(CONNECTION_STRING);
 
+mongoose.connect(CONNECTION_STRING)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+
 const app = express()
 
 console.log("process.env.FRONTEND_URL", process.env.FRONTEND_URL);
