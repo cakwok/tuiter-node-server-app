@@ -43,7 +43,6 @@ app.use(
   })
  ); 
 
- const yelpApiKey = 'Uo8r09YTxSmSGp3W63gh7Rj83Ro6C-F2GATdF-P6-MR6MG1mJ0tufFQ6djE5odDqYSK2vptfx8FHvb-9MaHQp6Z-c6y1M2KVZPwveKivz9uqGjzzWTdqW_Xc4SJ6YXYx';
  const yelpApiUrl = 'https://api.yelp.com/v3/businesses/search';
  
  // Define a route to proxy requests to Yelp API
