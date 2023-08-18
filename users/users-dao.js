@@ -1,4 +1,5 @@
-/* Assignment 5
+/* Assignment 5 */
+/*
 let users = [];
 
 export const findAllUsers = () => users;
@@ -34,6 +35,8 @@ export const deleteUser = (uid) => {
  return {status: 'ok'}
 };
 */
+
+/*Assignment 6*/
 import usersModel from "./users-model.js";
 
 export const findAllUsers = () =>
@@ -50,3 +53,4 @@ export const updateUser = (id, user) =>
   usersModel.updateOne({ _id: id }, { $set: user });
 export const deleteUser = (id) =>
   usersModel.deleteOne({ _id: id });
+

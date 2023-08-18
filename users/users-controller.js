@@ -1,4 +1,5 @@
-/* Assignment 5
+/* Assignment 5 */
+/*
 import people from './users.js';
 let users = people
 
@@ -30,6 +31,7 @@ const findUserById = (req, res) => {
 
 const createUser = (req, res) => {
     const newUser = req.body;
+    console.log(req);
     newUser._id = (new Date()).getTime() + '';
     users.push(newUser);
     res.json(newUser);
@@ -88,7 +90,7 @@ const findAllUsers = async (req, res) => {
 };
 
 const findUserById = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const user = await usersDao.findUserById(id);
   res.json(user);
 };
@@ -99,18 +101,19 @@ const createUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const status = await usersDao.deleteUser(id);
   res.json(status);
 };
 
 const updateUser = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const status = await usersDao.updateUser(id, req.body);
   const user = await usersDao.findUserById(id);
   req.session["currentUser"] = user;
   res.json(status);
 };
+
 
 /* keep */
 export default UserController

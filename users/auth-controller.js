@@ -1,6 +1,6 @@
 import * as usersDao from "./users-dao.js";
 
-/* Assignment 5
+/* Assignment 5 */
 const AuthController = (app) => {
     const register = (req, res) => {
         const username = req.body.username;
@@ -50,8 +50,9 @@ const AuthController = (app) => {
     app.post("/api/users/logout",   logout);
     app.put ("/api/users",          update);
     };
-*/
 
+
+/* Assignment 6
 const AuthController = (app) => {
   const register = async (req, res) => {
     const user = await usersDao.findUserByUsername(req.body.username);
@@ -105,6 +106,6 @@ const AuthController = (app) => {
   app.post("/api/users/logout",   logout);
   app.put ("/api/users",          update);
   };
-
+*/
 /* keep */
 export default AuthController;
