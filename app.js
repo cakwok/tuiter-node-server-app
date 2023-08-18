@@ -43,15 +43,12 @@ app.use(
   })
  ); 
 
- const yelpApiKey = 'Uo8r09YTxSmSGp3W63gh7Rj83Ro6C-F2GATdF-P6-MR6MG1mJ0tufFQ6djE5odDqYSK2vptfx8FHvb-9MaHQp6Z-c6y1M2KVZPwveKivz9uqGjzzWTdqW_Xc4SJ6YXYx';
+ const yelpApiKey = process.env.REACT_APP_YELP_API_KEY;
  const yelpApiUrl = 'https://api.yelp.com/v3/businesses/search';
  
  // Define a route to proxy requests to Yelp API
  app.get('/proxy/yelp', async (req, res) => {
   const { ...queryParams } = req.query;
-
-  console.log("yelpApiUrl", yelpApiUrl);
-  console.log("queryParams", queryParams);
 
   try {
     const response = await axios.get(`${yelpApiUrl}`, {
@@ -68,15 +65,12 @@ app.use(
     }
   });
 
-
-
  const sessionOptions = {
   secret: "any string",
   resave: false,
   saveUninitialized: false,
 };
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
-console.log("FRONTEND_URL", process.env.FRONTEND_URL);
+
 if (process.env.NODE_ENV !== "development") {
   sessionOptions.proxy = true;
   sessionOptions.cookie = {
@@ -84,8 +78,6 @@ if (process.env.NODE_ENV !== "development") {
     secure: true,
   };
 }
-
-
 
 app.use(
   session(sessionOptions)
