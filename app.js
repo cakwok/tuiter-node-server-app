@@ -9,7 +9,6 @@ import "dotenv/config";
 import axios from 'axios';
 import mongoose from "mongoose";
 
-/*
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter';
 mongoose.connect(CONNECTION_STRING);
 
@@ -20,7 +19,7 @@ mongoose.connect(CONNECTION_STRING)
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-*/
+
 
 const app = express()
 
@@ -45,10 +44,12 @@ app.use(
 
  const yelpApiKey = process.env.REACT_APP_YELP_API_KEY;
  const yelpApiUrl = 'https://api.yelp.com/v3/businesses/search';
- 
+ const yelpApiUrl_id = 'https://api.yelp.com/v3/businesses';
+
  // Define a route to proxy requests to Yelp API
  app.get('/proxy/yelp', async (req, res) => {
   const { ...queryParams } = req.query;
+   
 
   try {
     const response = await axios.get(`${yelpApiUrl}`, {
@@ -65,6 +66,21 @@ app.use(
     }
   });
 
+  app.get('/proxy/yelp/:id', async (req, res) => { 
+    try {
+      const response = await axios.get(`${yelpApiUrl_id}/${req.params.id}`, {
+        headers: {
+          Authorization: `Bearer ${yelpApiKey}`,
+          Accept: 'application/json',
+        },
+      });
+      res.json(response.data);
+      } catch (error) {
+        res.status(error.response.status).json(error.response.data);
+      }
+    });
+
+    
  const sessionOptions = {
   secret: "any string",
   resave: false,
@@ -78,6 +94,9 @@ if (process.env.NODE_ENV !== "development") {
     secure: true,
   };
 }
+
+
+
 
 app.use(
   session(sessionOptions)
