@@ -9,6 +9,7 @@ import AuthController from "./users/auth-controller.js";
 import "dotenv/config";
 import axios from 'axios';
 import mongoose from "mongoose";
+import RestaurantLikesRoutes from "./restaurantLikes/routes.js";
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/project';
 /*mongoose.connect(CONNECTION_STRING);*/
@@ -98,6 +99,7 @@ HelloController(app);
 UserController(app);
 */
 UserController(app);
+RestaurantLikesRoutes(app);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {});
